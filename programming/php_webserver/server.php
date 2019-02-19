@@ -100,13 +100,13 @@ class server
 				$this->set_env( $query_string );
 			}
 
-			$handle  = popen( self::WEB_ROOT . '/cgi' . $uri, 'r' );//打开进程文件指针
+			$handle  = popen( self::WEB_ROOT . 'cgi' . $uri, 'r' );//打开进程文件指针
 			$content = stream_get_contents( $handle );
 			pclose( $handle ); //关闭文件指针
 
 			return $this->output( 200, 'OK', $content );
 		} else {//静态请求,即处理静态文件
-			$file_name = self::WEB_ROOT . 'html/' . $uri;
+			$file_name = self::WEB_ROOT . 'html' . $uri;
 			echo "request file is: $file_name \n";
 			if ( file_exists( $file_name ) ) {
 				return $this->output( 200, 'OK', file_get_contents( $file_name ) );
