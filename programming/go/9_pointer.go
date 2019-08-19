@@ -9,7 +9,7 @@ func main() {
 
 	// var p *int
 	// p = &age
-	fmt.Println("age = ",name)
+	fmt.Println("name = ",name)
 }
 
 func test(name *string) string{
